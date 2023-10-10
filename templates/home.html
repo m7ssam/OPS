@@ -1,7 +1,34 @@
 {% extends "main.html" %} {% block content %}
-<a href="/project">
-  <h1>Home</h1>
-</a>
+{% load static %}
+<link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+{% load django_bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+<link rel="stylesheet" href="{% static "css/all.min.css" %}">
+<link rel="stylesheet" href="{% static "css/login.css" %}">
+
+<div class="card sp container mt-3 br">
+  <div class="card-header bg-body">
+  <h1><strong>P</strong>etro<strong>J</strong>et</h1>
+  <div class="container">
+      <div class="row d-flex">
+          <div class="col-4">
+              <div class="card-body">
+              <h5 class="card-title">Eastern Branch</h5>
+              <p class="card-text">Total Budget: 3,762,182 EGP</p>
+              <p class="card-text mb-0">Plan: 10%</p>
+              <p class="card-text">Actual: 25%</p>
+              <p class="card-text">Revenue: 1,469,398 EGP</p>
+              <a href="UnderConstruction.html" class="btn btn-outline-secondary">Full Branch Report</a>
+              </div>
+          </div>
+          <div class="col-8">
+              <div>
+                  <p><<'forcast'>></p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
 
 <hr />
 

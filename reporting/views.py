@@ -6,3 +6,6 @@ def home (request):
 
 def project (request):
   return render(request, 'project.html')
+
+def login (request):
+  return render(request, 'login.html')
