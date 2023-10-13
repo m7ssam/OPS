@@ -77,14 +77,14 @@ WSGI_APPLICATION = "OPS.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
+## this is the original database
 # DATABASES = {
 #     "default": {
 #         "ENGINE": "django.db.backends.sqlite3",
 #         "NAME": BASE_DIR / "db.sqlite3",
 #     }
 # }
-
+## the remote database for future deployment
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -95,7 +95,17 @@ DATABASES = {
         "PORT": "5432",
     }
 }
-
+##local databse for testing
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "ops",
+#         "USER": "postgres",
+#         "PASSWORD": "g1616omaa",
+#         "HOST": "localhost",
+#         "PORT": "5432",
+#     }
+# }
 
 
 

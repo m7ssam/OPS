@@ -1,35 +1,55 @@
-{% extends "main.html" %} {% block content %}
-{% load static %}
-<link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
-{% load django_bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
-<link rel="stylesheet" href="{% static "css/all.min.css" %}">
-<link rel="stylesheet" href="{% static "css/login.css" %}">
+{% extends "main.html" %} {% block content %} {% load static %} <link
+rel="stylesheet" href="{% static "css/all.min.css" %}"> <link rel="stylesheet"
+href="{% static "css/login.css" %}">
 
+{% comment %} Master Card start {% endcomment %}
 <div class="card sp container mt-3 br">
-  <div class="card-header bg-body">
-  <h1><strong>P</strong>etro<strong>J</strong>et</h1>
-  <div class="container">
-      <div class="row d-flex">
-          <div class="col-4">
-              <div class="card-body">
-              <h5 class="card-title">Eastern Branch</h5>
-              <p class="card-text">Total Budget: 3,762,182 EGP</p>
-              <p class="card-text mb-0">Plan: 10%</p>
-              <p class="card-text">Actual: 25%</p>
-              <p class="card-text">Revenue: 1,469,398 EGP</p>
-              <a href="UnderConstruction.html" class="btn btn-outline-secondary">Full Branch Report</a>
-              </div>
-          </div>
-          <div class="col-8">
-              <div>
-                  <p><<'forcast'>></p>
-              </div>
-          </div>
-      </div>
-  </div>
+    <div class="card-header bg-body">
+        <h1><strong>P</strong>etro<strong>J</strong>et</h1>
+        <div class="container">
+            <div class="row d-flex">
+                <div class="col-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Eastern Branch</h5>
+                        <p class="card-text">Total Budget: <"Sum(budget.value)"> EGP</p>
+                        <p class="card-text mb-0">Plan: 10%</p>
+                        <p class="card-text">Actual: 25%</p>
+                        <p class="card-text">Revenue: <"Sum(Revenue.value)"> EGP</p>
+                        <a href="UnderConstruction.html" class="btn btn-outline-secondary"
+                            >Full Branch Report</a
+                        >
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div>
+                    <p><<'forcast'>></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
+{% comment %} Master Card end {% endcomment %}
 
-<hr />
+{% comment %} Sub Card start {% endcomment %}
+
+<div class=" container mt-1 d-flex flex-wrap ">
+    {% for project in projects  %}
+    <div class="card sp container br mt-2" style="width: 18rem;">
+        <img src='{% static "images\Project\Cover\cp2011.jpg" %}' class="card-img-top br mt-2" alt="CP2011">
+        <div class="card-body">
+            {% comment %} <h5 class="card-title">COKER Project</h5> {% endcomment %}
+            <h5 class="card-title " dir="rtl" lang="ar"> {{project.project_name}} </h5>
+            <p class="card-text m-auto text-uppercase">Recipient: <strong>{{project.recipient}}</strong></p>
+            {% comment %} <p class="card-text m-auto">Budget: 608,652,000 USD</p> {% endcomment %}
+            <p class="card-text">Finish Date: {{project.finish_date}} </p>
+            <p class="card-text m-auto">Plane  <strong>97.98%</strong></p>
+            <p class="card-text ">Actual  <strong class="text-danger">38.06%</strong> <i class="fa-solid fa-arrow-down text-danger"></i></p>
+            <a href="{% url  'project' project.recipient %}" class="btn btn-primary">Report <i class="fa-solid text-light fa-arrow-right"></i></a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% comment %} Sub Card end {% endcomment %}
 
 {% endblock content %}
